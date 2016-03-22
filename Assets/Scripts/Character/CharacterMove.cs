@@ -15,6 +15,7 @@ public class CharacterMove : MonoBehaviour
     private Rigidbody2D body;
 
     private Vector2 moveVector;
+
     //Allows forces in FixedUpdate to be applied as a result of external input
     private bool gotInput = false;
 

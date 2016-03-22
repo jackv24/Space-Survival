@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
             characterMove.Move(inputVector.normalized);
 
         //Jump button is used to stop the player drifting in space
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Brake"))
             characterMove.Brake();
     }
 }
