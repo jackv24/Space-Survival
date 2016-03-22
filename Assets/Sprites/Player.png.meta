@@ -1,0 +1,258 @@
+fileFormatVersion: 2
+guid: 689cb251ba8cc4e4785eb3f7522ac3d5
+timeCreated: 1458601664
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Helmet
+    21300002: Head
+    21300004: Body
+    21300006: Jetpack
+    21300008: Eye_Left
+    21300010: Eye_Right
+    21300012: Arm_Left
+    21300014: Arm_Right
+    21300016: Leg_Left
+    21300018: Leg_Right
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Helmet
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 584
+        width: 431
+        height: 431
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: 69.712494}
+        - {x: 34, y: 91.712494}
+        - {x: -36, y: 91.712494}
+        - {x: -54, y: 87.712494}
+        - {x: -54, y: 8.712494}
+        - {x: -52, y: -2.287506}
+        - {x: -29, y: -16.287506}
+        - {x: 27, y: -16.287506}
+        - {x: 40, y: -13.287506}
+        - {x: 54, y: 14.712494}
+        - {x: 54, y: 53.712494}
+        - {x: 52, y: 59.712494}
+    - name: Head
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 672
+        width: 325
+        height: 330
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.75, y: 74.5}
+        - {x: -40.75, y: 62.5}
+        - {x: -40.75, y: -2.5}
+        - {x: -23.75, y: -8.5}
+        - {x: 27.25, y: -8.5}
+        - {x: 41.25, y: 4.5}
+        - {x: 41.25, y: 71.5}
+        - {x: 30.25, y: 74.5}
+    - name: Body
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 202
+        width: 261
+        height: 347
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33, y: 28.5}
+        - {x: 15, y: 44.5}
+        - {x: -14, y: 44.5}
+        - {x: -33, y: 19.5}
+        - {x: -33, y: -35.5}
+        - {x: -23, y: -43.5}
+        - {x: 16, y: -43.5}
+        - {x: 19, y: -42.5}
+        - {x: 33, y: -40.5}
+    - name: Jetpack
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 287
+        width: 183
+        height: 253
+      alignment: 9
+      pivot: {x: 0.742235, y: 0.6001223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.832253, y: 26.417267}
+        - {x: -26.832253, y: 23.417267}
+        - {x: -33.832253, y: -13.582733}
+        - {x: -33.832253, y: -36.582733}
+        - {x: -31.832253, y: -37.582733}
+        - {x: -11.8322525, y: -37.582733}
+        - {x: 12.1677475, y: -22.582733}
+        - {x: 12.1677475, y: 23.417267}
+        - {x: 1.1677475, y: 26.417267}
+    - name: Eye_Left
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 471
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 29.5}
+        - {x: -28.5, y: 24.5}
+        - {x: -28.5, y: -16.5}
+        - {x: -22.5, y: -28.5}
+        - {x: 26.5, y: -28.5}
+        - {x: 29.5, y: -17.5}
+        - {x: 29.5, y: 22.5}
+        - {x: 24.5, y: 29.5}
+    - name: Eye_Right
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 488
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 24.5}
+        - {x: -24, y: 14.5}
+        - {x: -24, y: -22.5}
+        - {x: -18, y: -24.5}
+        - {x: 25, y: -24.5}
+        - {x: 25, y: 24.5}
+    - name: Arm_Left
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 9
+        width: 65
+        height: 130
+      alignment: 9
+      pivot: {x: 0.27267173, y: 0.7922797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.611832, y: 14.50182}
+        - {x: -8.611832, y: -28.49818}
+        - {x: 4.3881683, y: -51.49818}
+        - {x: 24.388168, y: -51.49818}
+        - {x: 24.388168, y: -1.4981804}
+        - {x: 21.388168, y: 14.50182}
+    - name: Arm_Right
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 68
+        width: 110
+        height: 95
+      alignment: 9
+      pivot: {x: 0.21214932, y: 0.74442154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23.331787, y: 2.3899765}
+        - {x: 15.331787, y: 8.3899765}
+        - {x: 10.331787, y: 12.3899765}
+        - {x: -11.668213, y: 12.3899765}
+        - {x: -11.668213, y: -3.6100235}
+        - {x: -7.668213, y: -15.6100235}
+        - {x: 8.331787, y: -31.610023}
+        - {x: 23.331787, y: -35.610023}
+        - {x: 44.331787, y: -35.610023}
+        - {x: 44.331787, y: -17.610023}
+        - {x: 39.331787, y: -12.6100235}
+    - name: Leg_Left
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 29
+        width: 79
+        height: 173
+      alignment: 9
+      pivot: {x: 0.6336013, y: 0.8294481}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.277252, y: 15.502739}
+        - {x: -17.277252, y: 9.502739}
+        - {x: -25.277252, y: -2.497261}
+        - {x: -25.277252, y: -71.49726}
+        - {x: 2.7227478, y: -71.49726}
+        - {x: 14.722748, y: -55.49726}
+        - {x: 14.722748, y: 15.502739}
+    - name: Leg_Right
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 19
+        width: 70
+        height: 159
+      alignment: 9
+      pivot: {x: 0.31906563, y: 0.7920752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.167297, y: 17.280022}
+        - {x: -11.167297, y: -62.71998}
+        - {x: 24.832703, y: -62.71998}
+        - {x: 24.832703, y: -3.7199783}
+        - {x: 14.832703, y: 17.280022}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
