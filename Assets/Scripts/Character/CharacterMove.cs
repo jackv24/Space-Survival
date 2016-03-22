@@ -24,9 +24,10 @@ public class CharacterMove : MonoBehaviour
     }
 
     //Changed applied forces which move the character
-    public void Move(Vector2 normalisedInput)
+    public void Move(Vector2 inputVector)
     {
-        moveVector = normalisedInput * thrusterForce;
+        //Move vector is thruster force from input vector y
+        moveVector = inputVector * thrusterForce;
 
         gotInput = true;
     }
@@ -35,8 +36,8 @@ public class CharacterMove : MonoBehaviour
     public void Brake()
     {
         //If the character is still drifting, apply required force to stop the character
-        if (moveVector != Vector2.zero)
-            moveVector = -body.velocity * thrusterForce;
+        if (body.velocity != Vector2.zero)
+            moveVector = -body.velocity.normalized * thrusterForce;
 
         gotInput = true;
     }

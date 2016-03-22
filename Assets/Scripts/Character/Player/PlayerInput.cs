@@ -26,12 +26,9 @@ public class PlayerInput : MonoBehaviour
         inputVector.x = Input.GetAxisRaw("Horizontal");
         inputVector.y = Input.GetAxisRaw("Vertical");
 
-        //Normalise the input vector (we only want a direction, not a speed)
-        inputVector.Normalize();
-
         //If input is not zero, call character move function
         if (inputVector != Vector2.zero)
-            characterMove.Move(inputVector);
+            characterMove.Move(inputVector.normalized);
 
         //Jump button is used to stop the player drifting in space
         if (Input.GetButton("Jump"))
