@@ -11,6 +11,7 @@ public class CharacterMove : MonoBehaviour
 {
     //The force which is applied from the thrusters
     public float thrusterForce = 10f;
+    public float brakeForce = 20f;
 
     private Rigidbody2D body;
 
@@ -38,7 +39,7 @@ public class CharacterMove : MonoBehaviour
     {
         //If the character is still drifting, apply required force to stop the character
         if (body.velocity != Vector2.zero)
-            moveVector = -body.velocity.normalized * thrusterForce;
+            moveVector = -body.velocity.normalized * brakeForce;
 
         gotInput = true;
     }
