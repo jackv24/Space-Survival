@@ -13,9 +13,6 @@ public class ParallaxBackground : MonoBehaviour
     //1 is full follow, 0 is no follow, -ve values move faster than the camera (foreground effect)
     public float speed = 0;
 
-    //The sorting layer for this object
-    public string sortingLayer;
-
     //The main camera
     private Transform cam;
     //The position of the main camera (no z-axis)
@@ -25,9 +22,6 @@ public class ParallaxBackground : MonoBehaviour
 
     void Start()
     {
-        //Change sorting layer for this object
-        GetComponent<Renderer>().sortingLayerName = sortingLayer;
-
         cam = Camera.main.transform;
 
         //Make sure the object maintains it's original position relative to the camera

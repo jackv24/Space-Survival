@@ -37,9 +37,18 @@ public class CharacterMove : MonoBehaviour
     //Stops the character from drifting
     public void Brake()
     {
+        //Get velocity direction
+        Vector2 velocity = body.velocity;
+        if (velocity.magnitude > 1f)
+            velocity.Normalize();
+
         //If the character is still drifting, apply required force to stop the character
         if (body.velocity != Vector2.zero)
-            moveVector = -body.velocity.normalized * brakeForce;
+            moveVector = -velocity * brakeForce;
+
+        //Stop the character from drifting while button is held down
+        if (body.velocity.magnitude <= 0.1f)
+            body.velocity = Vector2.zero;
 
         gotInput = true;
     }
