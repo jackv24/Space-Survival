@@ -1,7 +1,7 @@
 ﻿/*
 **  Author: Jack Vine
 **
-**  Fades the sprites alpha from one to zero;
+**  Fades the sprites alpha from one to zero
 */
 
 using UnityEngine;
