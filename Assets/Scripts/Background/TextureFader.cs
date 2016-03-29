@@ -1,13 +1,13 @@
 ﻿/*
 **  Author: Jack Vine
 **
-**  Fades the sprites alpha from one to zero
+**  Fades the texture alpha from one to zero
 */
 
 using UnityEngine;
 using System.Collections;
 
-public class SpriteFader : MonoBehaviour
+public class TextureFader : MonoBehaviour
 {
     //The speed at which it will fade (from 0-1)
     public float speed = 0.025f;
@@ -17,12 +17,12 @@ public class SpriteFader : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("FadeSprite", GetComponent<SpriteRenderer>());
+        StartCoroutine("FadeTexture", GetComponent<MeshRenderer>());
     }
 
-    IEnumerator FadeSprite(SpriteRenderer sprite)
+    IEnumerator FadeTexture(MeshRenderer mesh)
     {
-        Color color = sprite.color;
+        Color color = mesh.material.GetColor("_TintColor");
 
         while (true)
         {
@@ -34,7 +34,7 @@ public class SpriteFader : MonoBehaviour
             if (color.a >= 0.95f || color.a <= 0.05f)
                 goingUp = !goingUp;
 
-            sprite.color = color;
+            mesh.material.SetColor("_TintColor", color);
 
             yield return null;
         }
