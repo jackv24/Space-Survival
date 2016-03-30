@@ -12,4 +12,6 @@ public class CharacterStats : MonoBehaviour
     public int health = 100, maxHealth = 100;
 
     public int oxygen = 100, maxOxygen = 100;
+
+    public int food = 50, maxFood = 50;
 }

@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrusterForce: 5
+  brakeForce: 20
 --- !u!114 &11452444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,6 +407,8 @@ MonoBehaviour:
   maxHealth: 100
   oxygen: 100
   maxOxygen: 100
+  food: 50
+  maxFood: 50
 --- !u!212 &21208632
 SpriteRenderer:
   m_ObjectHideFlags: 1
