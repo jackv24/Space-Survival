@@ -402,6 +402,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  displayInventory: {fileID: 0}
 --- !u!114 &11425962
 MonoBehaviour:
   m_ObjectHideFlags: 1

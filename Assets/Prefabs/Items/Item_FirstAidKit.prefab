@@ -9,10 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 460746}
   - 212: {fileID: 21273238}
-  - 114: {fileID: 11432644}
+  - 58: {fileID: 5851240}
+  - 114: {fileID: 11456122}
   m_Layer: 0
   m_Name: Item_FirstAidKit
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11432644
+--- !u!58 &5851240
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104658}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6
+--- !u!114 &11456122
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -40,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc4b82f65d2b6845be31a45ad62f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Item
+  itemName: First Aid Kit
   inventorySprite: {fileID: 21300000, guid: 38d46f1d140707e4b9a2f0bfe9c4eac4, type: 3}
 --- !u!212 &21273238
 SpriteRenderer:
@@ -84,6 +99,14 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 38d46f1d140707e4b9a2f0bfe9c4eac4,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: itemName
+      value: First Aid Kit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 104658}

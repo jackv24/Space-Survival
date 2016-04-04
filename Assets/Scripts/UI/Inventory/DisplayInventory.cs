@@ -64,6 +64,8 @@ public class DisplayInventory : MonoBehaviour
     public GameObject dragItemPrefab;
     private Image dragImage;
 
+    public Text amountText;
+
     void Start()
     {
         //If no inventory has been set, assume player
@@ -73,6 +75,8 @@ public class DisplayInventory : MonoBehaviour
         //If there is an inventory (set or found)...
         if (inventory)
         {
+            inventory.displayInventory = this;
+
             //Destroy any slots that already exist for some reason
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -94,6 +98,8 @@ public class DisplayInventory : MonoBehaviour
 
                 slots.Add(slot);
             }
+
+            RefreshText();
         }
 
         //If a drag item image does not exist
@@ -116,5 +122,18 @@ public class DisplayInventory : MonoBehaviour
             //Make it follow the mouse pointer
             dragImage.transform.position = Input.mousePosition;
         }
+    }
+
+    public void RefreshText()
+    {
+        int fullSlots = 0;
+
+        foreach (InventorySlot slot in slots)
+        {
+            if (slot.GetItem() != null)
+                fullSlots++;
+        }
+
+        amountText.text = fullSlots + "/" + slots.Count;
     }
 }

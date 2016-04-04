@@ -17,6 +17,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     //The inventory index this slot displays
     public int index = 0;
     //The item in this slot
+    [HideInInspector]
     private Item containingItem;
 
     //The image where the item in this slot is displayed
@@ -37,9 +38,13 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
             image.color = Color.white;
         }
         else
+        {
             image.color = Color.clear;
+        }
 
         containingItem = item;
+
+        displayInventory.RefreshText();
     }
     public Item GetItem() { return containingItem; } //Simply get the item
 
