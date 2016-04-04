@@ -380,7 +380,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab51b2e9c2049124ca1f60c2272095b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: 21
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11432644, guid: cb744c25d7149c7438f2eaa174f631f4, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11425962
 MonoBehaviour:
   m_ObjectHideFlags: 1
