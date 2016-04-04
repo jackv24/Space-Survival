@@ -18,12 +18,15 @@ public class DisplayInventory : MonoBehaviour
     //Reference to the inventory (is public as any inventory can be displayed. If left blank, this is the player)
     public Inventory inventory;
 
+    public List<InventorySlot> slots = new List<InventorySlot>();
     //The indexes of the last and current slots - for moving items between slots when clicked and dragged
     public int lastSlot = 0, currentSlot = 0;
 
     //Private reference to the item currently being dragged
     private Item draggingItem;
-    public Item DraggingItem //Property performs logic when dragging item is set and gotten
+
+    //DraggingItem property will automatically place and move items in the inventory when get or set by an InventorySlot
+    public Item DraggingItem
     {
         get
         {
@@ -33,6 +36,14 @@ public class DisplayInventory : MonoBehaviour
 
             dragImage.color = Color.clear;
 
+            //If the slot already contains an item, move it into the previous slot of the item being ragged
+            if (inventory.items[currentSlot] != null)
+            {
+                inventory.items[lastSlot] = inventory.items[currentSlot];
+                slots[lastSlot].SetItem(inventory.items[currentSlot]);
+            }
+
+            //Place dragged item into current slot
             inventory.items[currentSlot] = item;
 
             return item;
@@ -80,6 +91,8 @@ public class DisplayInventory : MonoBehaviour
                 //Set the corresponding inventory item to be displayed in this slot
                 slot.SetItem(inventory.items[i]);
                 slot.index = i;
+
+                slots.Add(slot);
             }
         }
 

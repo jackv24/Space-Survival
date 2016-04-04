@@ -9,7 +9,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
 {
     //Reference to itself set by DisplayInventory when slot is created
     public DisplayInventory displayInventory;
@@ -43,12 +43,11 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     }
     public Item GetItem() { return containingItem; } //Simply get the item
 
-    //WHen the mouse is clicked over this slot
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
+        //Dragging with left click
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            //If there is an item in this slot, pick it up
             if (containingItem)
             {
                 displayInventory.lastSlot = index;
@@ -59,17 +58,25 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
                 image.sprite = null;
                 image.color = Color.clear;
             }
-            else //If there is no item, place the item that's being dragged
-            {
-                displayInventory.currentSlot = index;
-                SetItem(displayInventory.DraggingItem);
+        }
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        //Not implemented - needed for begin drag to work
+    }
+    public void OnDrop(PointerEventData eventData)
+    {
+        //Dropping with left click
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            displayInventory.currentSlot = index;
+            SetItem(displayInventory.DraggingItem);
 
-                //If there is now a containing item (null if there was no item being dragged to begin with)
-                if (containingItem)
-                {
-                    image.sprite = containingItem.inventorySprite;
-                    image.color = Color.white;
-                }
+            //If there is now a containing item(null if there was no item being dragged to begin with)
+            if (containingItem)
+            {
+                image.sprite = containingItem.inventorySprite;
+                image.color = Color.white;
             }
         }
     }
