@@ -27,7 +27,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < Slots; i++)
         {
-            if (items[i] == null)
+            if (items[i].type == Item.Type.NULL)
                 return i;
         }
 

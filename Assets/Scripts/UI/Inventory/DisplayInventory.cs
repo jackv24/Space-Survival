@@ -117,7 +117,7 @@ public class DisplayInventory : MonoBehaviour
     void Update()
     {
         //If an item is being dragged
-        if (draggingItem)
+        if (draggingItem != null)
         {
             //Make it follow the mouse pointer
             dragImage.transform.position = Input.mousePosition;
@@ -130,7 +130,7 @@ public class DisplayInventory : MonoBehaviour
 
         foreach (InventorySlot slot in slots)
         {
-            if (slot.GetItem() != null)
+            if (slot.GetItem().type != Item.Type.NULL)
                 fullSlots++;
         }
 

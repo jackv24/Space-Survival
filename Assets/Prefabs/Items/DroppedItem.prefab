@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 460746}
   - 212: {fileID: 21273238}
   - 58: {fileID: 5851240}
-  - 114: {fileID: 11456122}
+  - 114: {fileID: 11419374}
   m_Layer: 0
-  m_Name: Item_FirstAidKit
+  m_Name: DroppedItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &11456122
+--- !u!114 &11419374
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,11 +52,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 104658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc4b82f65d2b6845be31a45ad62f2fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3071072132bc92a48a98fa3a3ad7812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: First Aid Kit
-  inventorySprite: {fileID: 21300000, guid: 38d46f1d140707e4b9a2f0bfe9c4eac4, type: 3}
+  itemID: 0
 --- !u!212 &21273238
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,6 +105,27 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: itemName
       value: First Aid Kit
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: info.name
+      value: First-Aid Kit
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: info.inventorySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 38d46f1d140707e4b9a2f0bfe9c4eac4,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: info.description
+      value: Heals you and stuff.
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: info.type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: itemID
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -32,7 +32,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     //Setting the item in this slot, also update display
     public void SetItem(Item item)
     {
-        if (item)
+        if (item.type != Item.Type.NULL)
         {
             image.sprite = item.inventorySprite;
             image.color = Color.white;
@@ -53,7 +53,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
         //Dragging with left click
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (containingItem)
+            if (containingItem != null)
             {
                 displayInventory.lastSlot = index;
                 displayInventory.DraggingItem = containingItem;
@@ -78,7 +78,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
             SetItem(displayInventory.DraggingItem);
 
             //If there is now a containing item(null if there was no item being dragged to begin with)
-            if (containingItem)
+            if (containingItem != null)
             {
                 image.sprite = containingItem.inventorySprite;
                 image.color = Color.white;

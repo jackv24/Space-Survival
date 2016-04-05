@@ -1,27 +1,47 @@
 ﻿/*
 **  Author: Jack Vine
 **
-**  The base item component - everything that can be picked up needs this component
-**  Contains item and item display information
+**  The base item script, contains item information
 */
 
 using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour
+[System.Serializable]
+public class Item
 {
-    public string itemName = "Item";
+    public int id;
 
+    public string name;
     public Sprite inventorySprite;
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.tag == "Player")
-        {
-            col.GetComponent<Inventory>().Pickup(this);
+    public string description;
 
-            //Item is simply set inactive when "picked up" and reactivated when dropped
-            gameObject.SetActive(false);
-        }
+    public enum Type
+    {
+        NULL,
+        BASIC,
+        CONSUMABLE,
+        WEAPON
+    }
+
+    public Type type;
+
+    public int power;
+    public int cost;
+
+    //Default contructor makes sure that it is clear that a default item is not a valid game item, as it has no useful data
+    public Item()
+    {
+        id = -1;
+
+        name = "INVALID";
+        description = "Something went wrong. You should never ever see one of these items.";
+
+        //Null items are used for cases such as empty slots in the inventory
+        type = Type.NULL;
+
+        power = 0;
+        cost = 0;
     }
 }
