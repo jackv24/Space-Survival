@@ -1,7 +1,7 @@
 ﻿/*
 **  Author: Jack Vine
 **
-**  Holds a database of all items in the game.
+**  Holds a database of all items in the game. Items are scriptable objects.
 */
 
 using UnityEngine;
@@ -21,12 +21,15 @@ public class ItemDatabase : MonoBehaviour
 
     public Item GetItem(int id)
     {
+        //Iterate through all items in the database
         foreach (Item item in items)
         {
+            //If a matching ID is found, return that item
             if (item.id == id)
                 return item;
         }
 
-        return new Item();
+        //If no match is found, return item 0 (index 0 should be the invalid object)
+        return items[0];
     }
 }

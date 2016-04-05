@@ -40,20 +40,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - id: 0
-    name: First-Aid Kit
-    inventorySprite: {fileID: 21300000, guid: 38d46f1d140707e4b9a2f0bfe9c4eac4, type: 3}
-    description: Heals 10HP
-    type: 2
-    power: 10
-    cost: 0
+  - {fileID: 11400000, guid: 15b9af07e2b454148a2bac911639b645, type: 2}
+  - {fileID: 11400000, guid: dd35f1ab3f603f048bf8b9bae6b87e54, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: dd35f1ab3f603f048bf8b9bae6b87e54,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117672}

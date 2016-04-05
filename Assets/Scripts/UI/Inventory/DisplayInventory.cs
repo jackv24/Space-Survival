@@ -37,7 +37,7 @@ public class DisplayInventory : MonoBehaviour
             dragImage.color = Color.clear;
 
             //If the slot already contains an item, move it into the previous slot of the item being ragged
-            if (inventory.items[currentSlot] != null)
+            if (inventory.items[currentSlot])
             {
                 inventory.items[lastSlot] = inventory.items[currentSlot];
                 slots[lastSlot].SetItem(inventory.items[currentSlot]);
@@ -117,7 +117,7 @@ public class DisplayInventory : MonoBehaviour
     void Update()
     {
         //If an item is being dragged
-        if (draggingItem != null)
+        if (draggingItem)
         {
             //Make it follow the mouse pointer
             dragImage.transform.position = Input.mousePosition;
@@ -130,7 +130,7 @@ public class DisplayInventory : MonoBehaviour
 
         foreach (InventorySlot slot in slots)
         {
-            if (slot.GetItem().type != Item.Type.NULL)
+            if (slot.GetItem())
                 fullSlots++;
         }
 

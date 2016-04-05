@@ -9,8 +9,10 @@ using System.Collections;
 
 public class DroppedItem : MonoBehaviour
 {
+    //Initialise item ID to the nonexistent ID of -1
     public int itemID = -1;
 
+    //The item that this DroppedItem represents
     private Item item;
 
     void Start()
@@ -18,7 +20,7 @@ public class DroppedItem : MonoBehaviour
         item = ItemDatabase.instance.GetItem(itemID);
 
         GetComponent<SpriteRenderer>().sprite = item.inventorySprite;
-        name = name + "_" + item.name;
+        name = name + "_" + item.itemName;
     }
 
     void OnTriggerEnter2D(Collider2D col)

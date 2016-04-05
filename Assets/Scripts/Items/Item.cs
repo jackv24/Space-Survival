@@ -1,47 +1,38 @@
 ﻿/*
 **  Author: Jack Vine
 **
-**  The base item script, contains item information
+**  ScriptableObject for items. This is what an item is - a collection of data.
+**  Items in the world or actually a DroppedItem, containing a reference to an item,
+**  and displaying data from that item.
 */
 
 using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
-public class Item
+[CreateAssetMenu(fileName ="Item", menuName ="Inventory/Item")]
+public class Item : ScriptableObject
 {
+    //Identify items by ID, to make searching the database safer (does not rely on names, which are changed often)
     public int id;
 
-    public string name;
+    //Data to display in inventory tooltips and such
+    public string itemName;
     public Sprite inventorySprite;
-
     public string description;
 
+    //Actual item data (that is, data that affects how the item works)
     public enum Type
     {
-        NULL,
         BASIC,
         CONSUMABLE,
         WEAPON
     }
 
+    //The type of item, used to determine how an item is used
     public Type type;
 
-    public int power;
+    //How much the item costs to buy
     public int cost;
-
-    //Default contructor makes sure that it is clear that a default item is not a valid game item, as it has no useful data
-    public Item()
-    {
-        id = -1;
-
-        name = "INVALID";
-        description = "Something went wrong. You should never ever see one of these items.";
-
-        //Null items are used for cases such as empty slots in the inventory
-        type = Type.NULL;
-
-        power = 0;
-        cost = 0;
-    }
+    //The power of the item (use case depends)
+    public int power;
 }

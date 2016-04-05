@@ -32,7 +32,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     //Setting the item in this slot, also update display
     public void SetItem(Item item)
     {
-        if (item.type != Item.Type.NULL)
+        if (item)
         {
             image.sprite = item.inventorySprite;
             image.color = Color.white;
