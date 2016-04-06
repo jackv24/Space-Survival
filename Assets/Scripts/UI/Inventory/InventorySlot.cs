@@ -9,7 +9,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     //Reference to itself set by DisplayInventory when slot is created
     public DisplayInventory displayInventory;
@@ -23,10 +23,15 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     //The image where the item in this slot is displayed
     private Image image;
 
+    //Tooltip to update
+    private ItemTooltip tooltip;
+
     void Awake()
     {
         //Image should be a component of the only child of this gameobject
         image = transform.GetChild(0).GetComponent<Image>();
+
+        tooltip = ItemTooltip.instance;
     }
 
     //Setting the item in this slot, also update display
@@ -62,6 +67,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
 
                 image.sprite = null;
                 image.color = Color.clear;
+
+                //Make tooltip disappear while dragging
+                OnPointerExit(eventData);
             }
         }
     }
@@ -83,6 +91,24 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
                 image.sprite = containingItem.inventorySprite;
                 image.color = Color.white;
             }
+
+            //Make tooltip appear on drop
+            OnPointerEnter(eventData);
         }
+    }
+
+    //Control tooltip
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (containingItem)
+        {
+            tooltip.gameObject.SetActive(true);
+
+            tooltip.UpdateData(containingItem);
+        }
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        tooltip.gameObject.SetActive(false);
     }
 }
