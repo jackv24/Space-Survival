@@ -17,7 +17,9 @@ public class Item : ScriptableObject
 
     //Data to display in inventory tooltips and such
     public string itemName;
+    
     public Sprite inventorySprite;
+
     public string description;
 
     //Actual item data (that is, data that affects how the item works)
