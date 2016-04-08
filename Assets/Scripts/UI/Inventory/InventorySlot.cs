@@ -9,7 +9,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     //Reference to itself set by DisplayInventory when slot is created
     public DisplayInventory displayInventory;
@@ -58,7 +58,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
         //Dragging with left click
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (containingItem != null)
+            if (containingItem)
             {
                 displayInventory.lastSlot = index;
                 displayInventory.DraggingItem = containingItem;
@@ -86,7 +86,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
             SetItem(displayInventory.DraggingItem);
 
             //If there is now a containing item(null if there was no item being dragged to begin with)
-            if (containingItem != null)
+            if (containingItem)
             {
                 image.sprite = containingItem.inventorySprite;
                 image.color = Color.white;
@@ -110,5 +110,16 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     public void OnPointerExit(PointerEventData eventData)
     {
         tooltip.gameObject.SetActive(false);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        //On right click, attempt to use item
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            //If item was used, clear this inventory slot
+            if(displayInventory.inventory.UseItem(index))
+                SetItem(null);
+        }
     }
 }

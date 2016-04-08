@@ -27,7 +27,7 @@ public class DroppedItem : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            col.GetComponent<Inventory>().Pickup(item);
+            col.GetComponent<Inventory>().AddItem(item);
 
             //TODO: Object pooling
             Destroy(gameObject);

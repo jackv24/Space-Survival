@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
     }
 
     //Called by the item which is picked up
-    public void Pickup(Item item)
+    public void AddItem(Item item)
     {
         int index = GetEmptySlot();
 
@@ -46,5 +46,19 @@ public class Inventory : MonoBehaviour
         {
             displayInventory.slots[index].SetItem(item);
         }
+    }
+
+    //Returns a bool if the item was used (chained from item.Use())
+    public bool UseItem(int index)
+    {
+        bool used = false;
+
+        if (items[index])
+            used = items[index].Use(GetComponent<CharacterStats>());
+
+        if (used)
+            items[index] = null;
+
+        return used;
     }
 }

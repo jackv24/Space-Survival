@@ -14,6 +14,7 @@ public class ItemEditor : Editor
 {
     public override void OnInspectorGUI()
     {
+        //The item that this script is targeting. That is, the item that is selected in the inspector.
         Item item = (Item)target;
 
         item.id = EditorGUILayout.IntField("ID", item.id);
@@ -26,9 +27,17 @@ public class ItemEditor : Editor
         item.inventorySprite = (Sprite)EditorGUILayout.ObjectField("Sprite", item.inventorySprite, typeof(Sprite), false);
         EditorGUILayout.Space();
 
-        EditorGUILayout.EnumPopup("Type", item.type);
-        item.cost = EditorGUILayout.IntField("Cost", item.cost);
+        item.type = (Item.Type)EditorGUILayout.EnumPopup("Type of item", item.type);
+        EditorGUILayout.Space();
+
+        if (item.type == Item.Type.CONSUMABLE)
+        {
+            //Consumable items usually effect stats, so the stat to effect should only be selectable if the item type is consumable
+            item.statType = (Item.StatType)EditorGUILayout.EnumPopup("Stat to affect", item.statType);
+        }
+
         item.power = EditorGUILayout.IntField("Power", item.power);
+        item.cost = EditorGUILayout.IntField("Cost", item.cost);
         EditorGUILayout.Space();
 
         GUILayout.Label("Description");

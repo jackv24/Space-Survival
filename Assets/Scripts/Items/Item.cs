@@ -29,12 +29,39 @@ public class Item : ScriptableObject
         CONSUMABLE,
         WEAPON
     }
-
     //The type of item, used to determine how an item is used
     public Type type;
+
+    public enum StatType
+    {
+        NONE,
+        HEALTH,
+        OXYGEN,
+        FOOD
+    }
+    public StatType statType;
 
     //How much the item costs to buy
     public int cost;
     //The power of the item (use case depends)
     public int power;
+
+    //Returns a bool if the item was used
+    public bool Use(CharacterStats stats)
+    {
+        if (type == Type.CONSUMABLE)
+        {
+            if (statType == StatType.HEALTH)
+            {
+                if (stats.health < stats.maxHealth)
+                {
+                    stats.AddHealth(power);
+                    return true;
+                }
+            }
+        }
+
+        //If the item was not used, return false
+        return false;
+    }
 }
