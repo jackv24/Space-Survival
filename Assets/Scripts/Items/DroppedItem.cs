@@ -17,10 +17,7 @@ public class DroppedItem : MonoBehaviour
 
     void Start()
     {
-        item = ItemDatabase.instance.GetItem(itemID);
-
-        GetComponent<SpriteRenderer>().sprite = item.inventorySprite;
-        name = name + "_" + item.itemName;
+        UpdateInfo();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -32,5 +29,14 @@ public class DroppedItem : MonoBehaviour
             //TODO: Object pooling
             Destroy(gameObject);
         }
+    }
+
+    //Public function so the item can be updated when dropped
+    public void UpdateInfo()
+    {
+        item = ItemDatabase.instance.GetItem(itemID);
+
+        GetComponent<SpriteRenderer>().sprite = item.inventorySprite;
+        name = "Dropped_" + item.itemName;
     }
 }

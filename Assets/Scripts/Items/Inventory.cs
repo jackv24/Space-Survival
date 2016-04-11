@@ -16,6 +16,8 @@ public class Inventory : MonoBehaviour
     //Call to update slot on display inventory (does not need to be assigned)
     public DisplayInventory displayInventory;
 
+    public GameObject dropItemPrefab;
+
     //Slots property conveniently returns amount of inventory slots
     public int Slots
     {
@@ -60,5 +62,32 @@ public class Inventory : MonoBehaviour
             items[index] = null;
 
         return used;
+    }
+
+    public void DropItem(int index)
+    {
+        //CHeck if item exists at index
+        if (items[index])
+        {
+            if (dropItemPrefab)
+            {
+                //TEMPORARY - items drop pos will be around character
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                pos.z = 0;
+
+                //Create new DroppedItem
+                GameObject obj = (GameObject)Instantiate(dropItemPrefab, pos, Quaternion.identity);
+
+                //Update info
+                DroppedItem drop = obj.GetComponent<DroppedItem>();
+                drop.itemID = items[index].id;
+                drop.UpdateInfo();
+            }
+            else
+                Debug.Log("No dropItem prefab assigned to inventory!");
+
+            //Remove from inventory
+            items[index] = null;
+        }
     }
 }

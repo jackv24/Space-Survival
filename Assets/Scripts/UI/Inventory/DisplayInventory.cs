@@ -23,42 +23,7 @@ public class DisplayInventory : MonoBehaviour
     public int lastSlot = 0, currentSlot = 0;
 
     //Private reference to the item currently being dragged
-    private Item draggingItem;
-
-    //DraggingItem property will automatically place and move items in the inventory when get or set by an InventorySlot
-    public Item DraggingItem
-    {
-        get
-        {
-            Item item = draggingItem;
-            //When the dragging item is gotten, that means it has been placed, and is therefore not being dragged anymore
-            draggingItem = null;
-
-            dragImage.color = Color.clear;
-
-            //If the slot already contains an item, move it into the previous slot of the item being ragged
-            if (inventory.items[currentSlot])
-            {
-                inventory.items[lastSlot] = inventory.items[currentSlot];
-                slots[lastSlot].SetItem(inventory.items[currentSlot]);
-            }
-
-            //Place dragged item into current slot
-            inventory.items[currentSlot] = item;
-
-            return item;
-        }
-        set
-        {
-            draggingItem = value;
-
-            dragImage.sprite = draggingItem.inventorySprite;
-            dragImage.color = Color.white;
-
-            //If the dragging item is being set, it is being dragged and is no longer in an inventory slot
-            inventory.items[lastSlot] = null;
-        }
-    }
+    public Item draggingItem;
 
     //Prefab to spawn for displaying dragged item
     public GameObject dragItemPrefab;
@@ -124,6 +89,7 @@ public class DisplayInventory : MonoBehaviour
         }
     }
 
+    //Refreshes the display of inventory text for amount of slots
     public void RefreshText()
     {
         int fullSlots = 0;
@@ -135,5 +101,23 @@ public class DisplayInventory : MonoBehaviour
         }
 
         amountText.text = fullSlots + "/" + slots.Count;
+    }
+
+    //Updates which item is being dragged
+    public void SetDrag(Item item)
+    {
+        if (item)
+        {
+            draggingItem = item;
+
+            dragImage.color = Color.white;
+            dragImage.sprite = item.inventorySprite;
+        }
+        else
+        {
+            draggingItem = null;
+
+            dragImage.color = Color.clear;
+        }
     }
 }

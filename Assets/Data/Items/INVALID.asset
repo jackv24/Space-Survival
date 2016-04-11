@@ -18,5 +18,6 @@ MonoBehaviour:
 
     If you can see this, something has gone horribly wrong.'
   type: 0
+  statType: 0
   cost: 0
   power: 0

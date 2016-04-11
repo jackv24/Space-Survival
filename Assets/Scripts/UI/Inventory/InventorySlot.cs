@@ -9,7 +9,11 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class InventorySlot : MonoBehaviour,
+    IBeginDragHandler, IDragHandler, IDropHandler,
+    IPointerEnterHandler, IPointerExitHandler,
+    IPointerUpHandler,
+    IPointerClickHandler
 {
     //Reference to itself set by DisplayInventory when slot is created
     public DisplayInventory displayInventory;
@@ -61,12 +65,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
             if (containingItem)
             {
                 displayInventory.lastSlot = index;
-                displayInventory.DraggingItem = containingItem;
+                displayInventory.SetDrag(containingItem);
 
-                containingItem = null;
-
-                image.sprite = null;
-                image.color = Color.clear;
+                SetItem(null);
 
                 //Make tooltip disappear while dragging
                 OnPointerExit(eventData);
@@ -83,7 +84,16 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             displayInventory.currentSlot = index;
-            SetItem(displayInventory.DraggingItem);
+
+            if (containingItem)
+            {
+                displayInventory.inventory.items[displayInventory.lastSlot] = containingItem;
+                displayInventory.slots[displayInventory.lastSlot].SetItem(containingItem);
+            }
+
+            displayInventory.inventory.items[index] = displayInventory.draggingItem;
+            SetItem(displayInventory.draggingItem);
+            displayInventory.SetDrag(null);
 
             //If there is now a containing item(null if there was no item being dragged to begin with)
             if (containingItem)
@@ -110,6 +120,17 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     public void OnPointerExit(PointerEventData eventData)
     {
         tooltip.gameObject.SetActive(false);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        //If an item is being dragged, and the pointer is released outside the inventory...
+        if (displayInventory.draggingItem && !EventSystem.current.IsPointerOverGameObject())
+        {
+            //...drop the item
+            displayInventory.inventory.DropItem(index);
+            displayInventory.SetDrag(null);
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)

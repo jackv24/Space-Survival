@@ -42,5 +42,7 @@ public class ItemEditor : Editor
 
         GUILayout.Label("Description");
         item.description = EditorGUILayout.TextArea(item.description, GUILayout.MinHeight(100f));
+
+        EditorUtility.SetDirty(target);
     }
 }

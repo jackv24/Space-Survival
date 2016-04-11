@@ -16,5 +16,6 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 38d46f1d140707e4b9a2f0bfe9c4eac4, type: 3}
   description: Heals 50HP
   type: 1
+  statType: 1
   cost: 0
   power: 50
