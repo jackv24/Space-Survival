@@ -49,8 +49,10 @@ public class Item : ScriptableObject
     //Returns a bool if the item was used
     public bool Use(CharacterStats stats)
     {
+        //If the type is consumable...
         if (type == Type.CONSUMABLE)
         {
+            //...apply the correct effect to the correct stat
             if (statType == StatType.HEALTH)
             {
                 if (stats.health < stats.maxHealth)
@@ -59,11 +61,19 @@ public class Item : ScriptableObject
                     return true;
                 }
             }
-            if (statType == StatType.FOOD)
+            else if (statType == StatType.FOOD)
             {
                 if (stats.food < stats.maxFood)
                 {
                     stats.AddFood(power);
+                    return true;
+                }
+            }
+            else if (statType == StatType.OXYGEN)
+            {
+                if (stats.oxygen < stats.maxOxygen)
+                {
+                    stats.AddOxygen(power);
                     return true;
                 }
             }
