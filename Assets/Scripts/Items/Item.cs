@@ -59,6 +59,14 @@ public class Item : ScriptableObject
                     return true;
                 }
             }
+            if (statType == StatType.FOOD)
+            {
+                if (stats.food < stats.maxFood)
+                {
+                    stats.AddFood(power);
+                    return true;
+                }
+            }
         }
 
         //If the item was not used, return false

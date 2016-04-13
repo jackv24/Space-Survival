@@ -2864,7 +2864,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 197d144e07b7f7f4f92469912360b49d, type: 3}
     m_FontSize: 24
-    m_FontStyle: 2
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 41
@@ -3138,6 +3138,7 @@ MonoBehaviour:
   slots: []
   lastSlot: 0
   currentSlot: 0
+  draggingItem: {fileID: 0}
   dragItemPrefab: {fileID: 151986, guid: 3d68c583cfbd4a842ae772c6edc9a30c, type: 2}
   amountText: {fileID: 11407424}
 --- !u!114 &11459880
