@@ -402,7 +402,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   displayInventory: {fileID: 0}
+  dropItemPrefab: {fileID: 104658, guid: cb744c25d7149c7438f2eaa174f631f4, type: 2}
 --- !u!114 &11425962
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,10 +14,10 @@ MonoBehaviour:
   id: 2
   itemName: Space Food
   inventorySprite: {fileID: 21300000, guid: c9233714f76033a499c25bc3f3e7e421, type: 3}
-  description: '<i>Some weird space food. It doesn''t really look like anything.</i>
+  description: 'Some weird space food. It doesn''t really look like anything.
 
 
-    <b>Regains 20 food</b>'
+    <i>Regains 20 food</i>'
   type: 1
   statType: 3
   cost: 0

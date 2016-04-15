@@ -85,10 +85,17 @@ public class InventorySlot : MonoBehaviour,
         {
             displayInventory.currentSlot = index;
 
+            //If there is already an item in this slot...
             if (containingItem)
             {
+                //move it into the last slot
                 displayInventory.inventory.items[displayInventory.lastSlot] = containingItem;
                 displayInventory.slots[displayInventory.lastSlot].SetItem(containingItem);
+            }
+            else //If this slot is empty, there is no need to swap items
+            {
+                //Therefore remove the item from the last slot, since it will be placed in this slot
+                displayInventory.inventory.items[displayInventory.lastSlot] = null;
             }
 
             displayInventory.inventory.items[index] = displayInventory.draggingItem;

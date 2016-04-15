@@ -2580,7 +2580,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 11445078}
   m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: 0
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
@@ -2654,7 +2654,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 22437444}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.7159904
+  m_Size: 0.85106385
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4909,7 +4909,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -10, y: 0}
   m_SizeDelta: {x: 20, y: -24}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!224 &22413442
@@ -5656,11 +5656,11 @@ RectTransform:
   - {fileID: 22429354}
   m_Father: {fileID: 22432494}
   m_RootOrder: 3
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 310, y: 600}
-  m_Pivot: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 590, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22465078
 RectTransform:
   m_ObjectHideFlags: 1
